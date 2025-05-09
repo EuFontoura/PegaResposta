@@ -5,12 +5,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import threading
 
 def extrair_conteudo(url, output_widget):
     try:
         options = Options()
-        driver = webdriver.Chrome(options=options)
+        service = Service('chromedriver.exe')
+        driver = webdriver.Chrome(service=service)
         driver.get(url)
         driver.minimize_window()
 
